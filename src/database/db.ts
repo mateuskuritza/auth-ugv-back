@@ -1,12 +1,13 @@
 import { DataSource } from "typeorm"
-import { User } from "./entities/User"
 
-export const db = new DataSource({
+const db = new DataSource({
     type: "sqlite",
     database: "database.sqlite",
     synchronize: true,
     logging: true,
-    entities: [User],
-    migrations: ["./migrations/"],
+    entities: ['src/database/entities/*'],
+    migrations: ["src/database/migrations/*"],
     subscribers: [],
 })
+
+export default db

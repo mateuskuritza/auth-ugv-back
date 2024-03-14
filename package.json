@@ -7,7 +7,9 @@
         "build": "tsc",
         "start": "node ./bin/app.js",
         "dev": "nodemon ./src/app.ts",
-        "create:migration": "typeorm migration:create"
+        "migration:create": "typeorm migration:create -n",
+        "migration:generate": "ts-node ./node_modules/.bin/typeorm migration:generate ./src/database/migrations/default -d ./src/database/db",
+        "migration:run": "ts-node ./node_modules/.bin/typeorm migration:run -d ./src/database/db"
     },
     "dependencies": {
         "express": "^4.18.3",
