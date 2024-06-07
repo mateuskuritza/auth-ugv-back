@@ -1,6 +1,10 @@
-import "reflect-metadata"
-import { setupServer } from "./server";
-import { db } from "./database";
+import "express-async-errors";
+import express from "express";
+import routes from "./user/routes/user.route";
 
 
-db.initialize().then(setupServer)
+const app = express();
+app.use(express.json());
+app.use(routes);
+
+export default app;
